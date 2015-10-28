@@ -1,0 +1,24 @@
+# configuration for carbon-relay-ng
+instance = "<% @instance_name %>"
+listen_addr = "<% @listen_addr %>:<% @listen_port %>"
+admin_addr = "<% @admin_addr %>:<% @admin_port %>"
+http_addr = "<% @http_addr %>:<% @http_port %>"
+spool_dir = "<% @spool_dir %>"
+#one of critical error warning notice info debug
+log_level = "<% @log_level %>"
+# How long to keep track of invalid metrics seen
+# Useful time units are "s", "m", "h"
+bad_metrics_max_age = "<% @bad_metrics_max_age %>"
+
+# put init commands here, in the same format as you'd use for the telnet interface
+# here's some examples:
+<% if @init_config -%>
+init = [
+<% @init_config.join(",\n") -%>
+]
+<% end -%>
+
+[instrumentation]
+# in addition to serving internal metrics via expvar, you can optionally send em to graphite
+graphite_addr = "<%= @graphite_addr %>:<%= @graphite_port %>" # (how about feeding back into the relay itself? :)
+graphite_interval = <%= @graphite_interval %>  # in ms
