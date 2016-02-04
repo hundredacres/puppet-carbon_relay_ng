@@ -20,7 +20,7 @@ class carbon_relay_ng::config {
   $service_name        = $::carbon_relay_ng::params::service_name
   $spool_dir           = $::carbon_relay_ng::params::spool_dir
 
-  file { ' /var/log/carbon-relay-ng/':
+  file { '/var/log/carbon-relay-ng':
     ensure => directory,
     owner  => 'root',
     group  => 'root',
