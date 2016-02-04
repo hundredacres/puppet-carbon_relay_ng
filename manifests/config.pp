@@ -16,9 +16,16 @@ class carbon_relay_ng::config {
   $listen_addr         = $::carbon_relay_ng::params::listen_addr
   $listen_port         = $::carbon_relay_ng::params::listen_port
   $log_level           = $::carbon_relay_ng::params::log_level
+  $max_procs           = $::carbon_relay_ng::params::max_procs
   $service_name        = $::carbon_relay_ng::params::service_name
   $spool_dir           = $::carbon_relay_ng::params::spool_dir
 
+  file { ' /var/log/carbon-relay-ng/':
+    ensure => directory,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+  }
   file { '/etc/carbon-relay-ng.conf':
     owner   => 'root',
     group   => 'root',
