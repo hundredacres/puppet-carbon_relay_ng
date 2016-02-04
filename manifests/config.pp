@@ -26,6 +26,11 @@ class carbon_relay_ng::config {
     group  => 'root',
     mode   => '0755',
   }
+  file { '/var/spool/carbon-relay-ng':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
   file { '/etc/carbon-relay-ng.conf':
     owner   => 'root',
     group   => 'root',
