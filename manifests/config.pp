@@ -31,6 +31,7 @@ class carbon_relay_ng::config {
     owner  => 'root',
     group  => 'root',
     mode   => '0755',
+  }
   file { '/etc/carbon-relay-ng.conf':
     owner   => 'root',
     group   => 'root',
